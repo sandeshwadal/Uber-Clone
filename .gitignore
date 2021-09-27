@@ -60,3 +60,5 @@ buck-out/
 package-lock.json
 ios/Podfile.lock
 ios/UberClone.xcworkspace/
+
+.env
