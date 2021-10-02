@@ -21,22 +21,15 @@ const data = [
 export default function NavOptions() {
     const navigation = useNavigation()
     const dispatch = useDispatch()
-
-
     return (
 
         <FlatList horizontal={true} keyExtractor={(item) => item.id} data={data} renderItem={({ item }) => (
             <TouchableOpacity onPress={() => {
                 try {
 
-                    dispatch(
-                        setStart({
-                            location: origin,
-                            description: 'Test location'
-                        })
-                    );
-                    dispatch(setDestination(null));
-                    navigation.navigate(item.screen)
+                    if (item.screen == 'MapScreen') {
+                        navigation.navigate(item.screen)
+                    }
                 } catch (error) {
                     //   console.log('errrrr', error);
                 }

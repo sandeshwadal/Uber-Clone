@@ -28,19 +28,15 @@ export default function HomeScreen() {
                             console.log('on timeout===');
                         }}
                         fetchDetails={true}
-                        onPress={(data, details = null) => {
-                            console.log('data===', data);
-                            console.log('details=====', details);
-                        }}
                         placeholder='Where to '
                         nearbyPlacesAPI='GooglePlacesSearch'
                         onPress={(data, details = null) => {
                             // 'details' is provided when fetchDetails = true
-                            console.log(data, details);
                             dispatch(setStart({
                                 location: details.geometry.location,
                                 description: data.description
                             }))
+                            dispatch(setDestination(null))
                         }}
                         query={{
                             key: MAPS_API_KEY,
