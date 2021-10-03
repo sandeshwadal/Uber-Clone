@@ -2,8 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectStart, setDestination, setStart } from '../reducers/rootReducer';
 const data = [
     {
         id: '1',
@@ -20,10 +18,9 @@ const data = [
 ]
 export default function NavOptions() {
     const navigation = useNavigation()
-    const dispatch = useDispatch()
     return (
 
-        <FlatList horizontal={true} keyExtractor={(item) => item.id} data={data} renderItem={({ item }) => (
+        <FlatList style={styles.flatlist} horizontal={true} keyExtractor={(item) => item.id} data={data} renderItem={({ item }) => (
             <TouchableOpacity onPress={() => {
                 try {
 
@@ -50,9 +47,12 @@ const styles = StyleSheet.create({
         alignItems: 'center', margin: 10
     },
     itemImage: {
-        height: 100, width: 120,
+        height: 120, width: 120,
     },
     itemText: {
         textAlign: 'center'
+    },
+    flatlist:{
+        margin:10, padding:10
     }
 })

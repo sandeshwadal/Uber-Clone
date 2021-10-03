@@ -12,9 +12,14 @@ const NavigateComponent = () => {
     const navigation = useNavigation()
 
     return (
-        <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
+        <SafeAreaView style={{ flex: 1 }}>
             <View style={{ borderTopWidth: 1, borderTopColor: 'gray', flex: 1 }}>
                 <GooglePlacesAutocomplete
+                 styles={{
+                    margin: 10, container: {
+                        flex: 0, margin:10
+                    }
+                }}
                     placeholder='Where to'
                     debounce={400}
                     nearbyPlacesAPI='GooglePlacesSearch'
@@ -31,26 +36,6 @@ const NavigateComponent = () => {
                          navigation.navigate('RideOptions')
                     }}
                 >
-                    {/* <TouchableOpacity onPress={() => {
-                        dispatch(setDestination({
-                            location: location,
-                            description: 'Destination'
-                        }))
-                        // navigation.navigate('RideOptions')
-                    }}>
-                        <Text>Destination</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => {
-                        dispatch(setDestination({
-                            location: location2,
-                            description: 'Destination'
-                        }))
-                        // navigation.navigate('RideOptions')
-                    }}>
-                        <Text>Destination2</Text>
-                    </TouchableOpacity> */}
-
                 </GooglePlacesAutocomplete>
 
             </View>
